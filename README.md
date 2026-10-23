@@ -13,7 +13,7 @@ NTE transmits authentication data in plaintext over TCP port `30031` using [Goog
 
 An attacker on the same network as a victim can capture this data via ARP poisoning, replay it from any system at any time, and inject it into their own authentication flow to play the game as the victim.
 
-## Demo Video
+## Demo video
 
 https://github.com/user-attachments/assets/f4d23525-5b0f-4de9-ae06-74bfeca7c3d5
 
