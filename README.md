@@ -11,7 +11,7 @@ For the full details, read my blogpost [here](https://hunio.org/security/nte-acc
 
 NTE transmits authentication data in plaintext over TCP port `30031` using [Google FlatBuffers](https://flatbuffers.dev/). The authentication data includes a User ID and User Secret that lack any form of replay protection.
 
-An attacker on the same network as a victim can capture this data via ARP poisoning, replay it from any system at any time, and inject it into their own authentication flow to play the game as the victim.
+An attacker on the same network as a victim can perform a man-in-the-middle attack via ARP poisoning to capture this data, replay it from any system at any time, and inject it into their own authentication flow to play the game as the victim.
 
 ## Demo video
 
